@@ -4,6 +4,7 @@ import SectionHeading from "../../components/ui/SectionHeading";
 import TechTag from "../../components/ui/TechTag";
 import RevealOnScroll from "../../components/motion/RevealOnScroll";
 import PageTransition from "../../components/motion/PageTransition";
+import "./about.css";
 
 const education = [
   {
@@ -48,9 +49,6 @@ function About() {
 
             <div
               style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: "var(--grid-gutter)",
                 alignItems: "center",
               }}
               className="about-grid"
@@ -88,11 +86,6 @@ function About() {
 
               <RevealOnScroll delay={0.15}>
                 <div
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "1fr 1fr",
-                    gap: "var(--space-4)",
-                  }}
                   className="about-stats"
                 >
                   <div className="stat-card">
@@ -206,7 +199,6 @@ function About() {
                   <article
                     className="edu-card"
                     style={{
-                      padding: "var(--space-6)",
                       background: "var(--color-surface)",
                       border: "1px solid var(--color-border)",
                       borderRadius: "var(--radius-md)",
@@ -269,11 +261,6 @@ function About() {
             />
 
             <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: "var(--grid-gutter)",
-              }}
               className="skills-group-grid"
             >
               {[
@@ -284,8 +271,8 @@ function About() {
               ].map((group, gi) => (
                 <RevealOnScroll key={group.label} delay={0.1 * gi}>
                   <div
+                    className="skills-group-card"
                     style={{
-                      padding: "var(--space-6)",
                       background: "var(--color-surface)",
                       border: "1px solid var(--color-border)",
                       borderRadius: "var(--radius-md)",

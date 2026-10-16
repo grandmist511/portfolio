@@ -10,6 +10,7 @@
 @import '@fontsource/jetbrains-mono/500.css';
 
 
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -104,4 +105,3 @@ p {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-text-muted);
 }
-

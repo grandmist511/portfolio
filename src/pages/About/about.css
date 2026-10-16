@@ -1,0 +1,40 @@
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--grid-gutter);
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.skills-group-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--grid-gutter);
+}
+
+.edu-card,
+.skills-group-card {
+  padding: var(--space-6);
+}
+
+@media (max-width: 768px) {
+  .about-grid,
+  .skills-group-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .about-stats {
+    gap: var(--space-2);
+  }
+
+  .edu-card,
+  .skills-group-card {
+    padding: var(--space-4);
+  }
+}

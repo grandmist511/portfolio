@@ -8,6 +8,15 @@
 .app-main {
   flex: 1;
   padding-top: var(--nav-height);
+  min-width: 0;
+}
+
+.app-main > .section:first-child {
+  padding-top: 16px;
+}
+
+.app-main > .hero:first-child {
+  align-items: flex-start;
 }
 
 .container {
@@ -15,6 +24,7 @@
   max-width: var(--max-width);
   margin-inline: auto;
   padding-inline: var(--grid-gutter);
+  min-width: 0;
 }
 
 @media (max-width: 768px) {
@@ -24,7 +34,7 @@
 }
 
 .section {
-  padding-block: clamp(64px, 8vw, 128px);
+  padding-block: clamp(40px, 6vw, 88px);
 }
 
 .section--alt {
@@ -47,6 +57,12 @@
   }
 }
 
+@media (max-width: 480px) {
+  :root {
+    --nav-height: 64px;
+  }
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -58,4 +74,3 @@
   white-space: nowrap;
   border: 0;
 }
-
