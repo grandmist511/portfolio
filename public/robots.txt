@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://grandmist.tech/sitemap.xml
+Sitemap: https://www.grandmist.tech/sitemap.xml
