@@ -32,8 +32,6 @@ function Footer() {
               key={link.label}
               href={link.href}
               className="footer-social-link"
-              target="_blank"
-              rel="noopener noreferrer"
               aria-label={link.label}
             >
               <link.icon size={20} />
@@ -55,4 +53,3 @@ function Footer() {
 }
 
 export default Footer;
-

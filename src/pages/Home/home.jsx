@@ -66,7 +66,7 @@ function Home() {
                 <RevealOnScroll delay={0.2}>
                   <p className="hero-subtitle">
                     A full-stack developer passionate about crafting performant,
-                    accessible, and beautifully engineered digital experiences —
+                    accessible, and beautifully engineered digital experiences,
                     from polished UIs to robust APIs.
                   </p>
                 </RevealOnScroll>

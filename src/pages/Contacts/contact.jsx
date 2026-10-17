@@ -85,8 +85,6 @@ function Contact() {
                         key={link.label}
                         href={link.href}
                         className="contact-socials-link"
-                        target="_blank"
-                        rel="noopener noreferrer"
                         aria-label={link.label}
                       >
                         <link.icon size={20} />
@@ -110,8 +108,6 @@ function Contact() {
                   <a
                     className="whatsapp-link"
                     href={whatsappUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
                   >
                     <WhatsAppIcon />
                     Chat on WhatsApp

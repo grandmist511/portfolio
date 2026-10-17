@@ -70,8 +70,6 @@ function Projects() {
                           <a
                             href={project.githubUrl}
                             className="project-card-link"
-                            target="_blank"
-                            rel="noopener noreferrer"
                           >
                             <GitBranch size={16} />
                             Source
@@ -81,8 +79,6 @@ function Projects() {
                           <a
                             href={project.liveUrl}
                             className="project-card-link"
-                            target="_blank"
-                            rel="noopener noreferrer"
                           >
                             <ExternalLink size={16} />
                             Live Demo
