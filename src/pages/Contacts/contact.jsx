@@ -1,21 +1,25 @@
-import { useState } from "react";
 import {
   MapPin,
   Mail,
-  Phone,
   GitBranch,
   Globe,
-  Send,
-  CheckCircle,
-  AlertCircle,
 } from "lucide-react";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
 import SectionHeading from "../../components/ui/SectionHeading";
-import Button from "../../components/ui/Button";
 import RevealOnScroll from "../../components/motion/RevealOnScroll";
 import PageTransition from "../../components/motion/PageTransition";
 import "./contact.css";
+
+const whatsappUrl = "https://wa.me/256785771155";
+
+function WhatsAppIcon() {
+  return (
+    <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+      <path d="M16.04 3C8.87 3 3.04 8.82 3.04 15.98c0 2.29.6 4.52 1.75 6.48L3 29l6.72-1.76a13.02 13.02 0 0 0 6.31 1.62h.01c7.16 0 13-5.82 13-12.98 0-3.47-1.35-6.73-3.81-9.18A12.9 12.9 0 0 0 16.04 3Zm0 23.64h-.01a10.8 10.8 0 0 1-5.5-1.5l-.4-.24-3.99 1.05 1.07-3.89-.26-.4a10.77 10.77 0 0 1-1.66-5.68C5.29 10.03 10.12 5.2 16.05 5.2c2.87 0 5.56 1.12 7.59 3.15a10.66 10.66 0 0 1 3.14 7.58c0 5.94-4.83 10.71-10.74 10.71Zm5.9-8.03c-.32-.16-1.9-.94-2.2-1.05-.3-.11-.51-.16-.73.16-.22.32-.84 1.05-1.03 1.27-.19.21-.38.24-.7.08-.32-.16-1.36-.5-2.59-1.59-.96-.85-1.61-1.9-1.8-2.22-.19-.32-.02-.49.14-.65.14-.14.32-.38.48-.56.16-.19.21-.32.32-.54.1-.21.05-.4-.03-.56-.08-.16-.73-1.75-1-2.4-.26-.63-.53-.54-.73-.55h-.62c-.21 0-.56.08-.86.4-.3.33-1.13 1.1-1.13 2.68s1.16 3.1 1.32 3.31c.16.22 2.28 3.49 5.52 4.89.77.33 1.37.53 1.84.68.77.24 1.47.21 2.02.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.4.19-1.53-.08-.14-.3-.22-.62-.38Z" />
+    </svg>
+  );
+}
 
 const contactInfo = [
   {
@@ -23,12 +27,6 @@ const contactInfo = [
     label: "Email",
     value: "sebbless511@gmail.com",
     href: "mailto:sebbless511@gmail.com",
-  },
-  {
-    icon: Phone,
-    label: "Phone",
-    value: "+256 785771155",
-    href: "tel:+256785771155",
   },
   {
     icon: MapPin,
@@ -48,54 +46,6 @@ const socialLinks = [
 ];
 
 function Contact() {
-  const [formState, setFormState] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-  const [errors, setErrors] = useState({});
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormState((prev) => ({ ...prev, [name]: value }));
-    // Clear error on change
-    if (errors[name]) {
-      setErrors((prev) => {
-        const next = { ...prev };
-        delete next[name];
-        return next;
-      });
-    }
-  };
-
-  const validate = () => {
-    const newErrors = {};
-    if (!formState.name.trim()) newErrors.name = "Name is required";
-    if (!formState.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formState.email)) {
-      newErrors.email = "Please enter a valid email";
-    }
-    if (!formState.subject.trim()) newErrors.subject = "Subject is required";
-    if (!formState.message.trim()) {
-      newErrors.message = "Message is required";
-    }
-    return newErrors;
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const newErrors = validate();
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      return;
-    }
-    // Simulate submission — replace with actual API call later
-    setSubmitted(true);
-  };
-
   return (
     <PageTransition>
       <Header />
@@ -146,146 +96,30 @@ function Contact() {
                 </div>
               </RevealOnScroll>
 
-              {/* Contact Form */}
+              {/* WhatsApp Contact */}
               <RevealOnScroll delay={0.15}>
-                {submitted ? (
-                  <div className="contact-form">
-                    <div className="form-success">
-                      <div className="form-success-icon">
-                        <CheckCircle size={32} />
-                      </div>
-                      <h3 className="form-success-title">Message Sent!</h3>
-                      <p className="form-success-desc">
-                        Thank you for reaching out! I&apos;ll get back to you
-                        within 24–48 hours.
-                      </p>
-                      <Button
-                        variant="secondary"
-                        onClick={() => {
-                          setSubmitted(false);
-                          setFormState({
-                            name: "",
-                            email: "",
-                            subject: "",
-                            message: "",
-                          });
-                        }}
-                      >
-                        Send Another Message
-                      </Button>
-                    </div>
+                <div className="whatsapp-card">
+                  <div className="whatsapp-card-icon" aria-hidden="true">
+                    <WhatsAppIcon />
                   </div>
-                ) : (
-                  <form
-                    className="contact-form"
-                    onSubmit={handleSubmit}
-                    noValidate
+                  <h2 className="whatsapp-card-title">Let&apos;s chat on WhatsApp</h2>
+                  <p className="whatsapp-card-description">
+                    Have a project in mind or just want to say hello? Message me
+                    directly on WhatsApp.
+                  </p>
+                  <a
+                    className="whatsapp-link"
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    <div
-                      className={`form-field ${
-                        errors.name ? "form-field--error" : ""
-                      }`}
-                    >
-                      <label className="form-field-label" htmlFor="name">
-                        Name
-                      </label>
-                      <input
-                        id="name"
-                        name="name"
-                        type="text"
-                        className="form-field-input"
-                        placeholder="Your name"
-                        value={formState.name}
-                        onChange={handleChange}
-                      />
-                      {errors.name && (
-                        <span className="form-field-error-msg">
-                          <AlertCircle size={14} />
-                          {errors.name}
-                        </span>
-                      )}
-                    </div>
-
-                    <div
-                      className={`form-field ${
-                        errors.email ? "form-field--error" : ""
-                      }`}
-                    >
-                      <label className="form-field-label" htmlFor="email">
-                        Email
-                      </label>
-                      <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        className="form-field-input"
-                        placeholder="your@email.com"
-                        value={formState.email}
-                        onChange={handleChange}
-                      />
-                      {errors.email && (
-                        <span className="form-field-error-msg">
-                          <AlertCircle size={14} />
-                          {errors.email}
-                        </span>
-                      )}
-                    </div>
-
-                    <div
-                      className={`form-field ${
-                        errors.subject ? "form-field--error" : ""
-                      }`}
-                    >
-                      <label className="form-field-label" htmlFor="subject">
-                        Subject
-                      </label>
-                      <input
-                        id="subject"
-                        name="subject"
-                        type="text"
-                        className="form-field-input"
-                        placeholder="What's this about?"
-                        value={formState.subject}
-                        onChange={handleChange}
-                      />
-                      {errors.subject && (
-                        <span className="form-field-error-msg">
-                          <AlertCircle size={14} />
-                          {errors.subject}
-                        </span>
-                      )}
-                    </div>
-
-                    <div
-                      className={`form-field ${
-                        errors.message ? "form-field--error" : ""
-                      }`}
-                    >
-                      <label className="form-field-label" htmlFor="message">
-                        Message
-                      </label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        className="form-field-textarea"
-                        placeholder="Tell me about your project..."
-                        value={formState.message}
-                        onChange={handleChange}
-                      />
-                      {errors.message && (
-                        <span className="form-field-error-msg">
-                          <AlertCircle size={14} />
-                          {errors.message}
-                        </span>
-                      )}
-                    </div>
-
-                    <Button type="submit" size="lg">
-                      <Send size={18} />
-                      Send Message
-                    </Button>
-                  </form>
-                )}
+                    <WhatsAppIcon />
+                    Chat on WhatsApp
+                  </a>
+                  <p className="whatsapp-card-note">
+                    Opens WhatsApp on your device, or WhatsApp Web.
+                  </p>
+                </div>
               </RevealOnScroll>
             </div>
           </div>
