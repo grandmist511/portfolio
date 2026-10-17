@@ -1,6 +1,5 @@
 
 :root {
-    
   --color-bg: #FAFAFC;
   --color-surface: #FFFFFF;
   --color-surface-alt: #F2F1F8;
@@ -8,6 +7,9 @@
   --color-text-primary: #15121F;
   --color-text-secondary: #5B5770;
   --color-text-muted: #8B87A0;
+
+  --color-bg-strong: #F2F1F8;
+  --color-surface-elevated: #FFFFFF;
 
   /* ========================================
      2. Signature Accent — Neon Purple
@@ -103,3 +105,31 @@
   /* sm: 480px, md: 768px, lg: 1024px, xl: 1280px */
 }
 
+:root[data-theme="dark"] {
+  --color-bg: #10121B;
+  --color-surface: #181A27;
+  --color-surface-alt: #141621;
+  --color-border: #2B2C3B;
+  --color-text-primary: #F4F1FA;
+  --color-text-secondary: #C6C1D3;
+  --color-text-muted: #9993A9;
+
+  --color-bg-strong: #11131D;
+  --color-surface-elevated: #1D1F2D;
+
+  --color-accent: #A78BFA;
+  --color-accent-bright: #C4B5FD;
+  --color-accent-deep: #C4B5FD;
+  --color-accent-tint-10: rgba(124, 77, 255, 0.18);
+  --color-accent-tint-06: rgba(124, 77, 255, 0.1);
+
+  --glow-accent: 0 0 18px rgba(124, 77, 255, 0.16), 0 0 36px rgba(124, 77, 255, 0.08);
+  --gradient-accent: linear-gradient(135deg, #5636C2 0%, #7655F4 50%, #432A91 100%);
+  --gradient-mesh-bg: radial-gradient(circle at 20% 20%, rgba(124, 77, 255, 0.13), transparent 40%),
+                       radial-gradient(circle at 80% 70%, rgba(157, 123, 255, 0.09), transparent 45%);
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.26);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.32);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.4);
+}

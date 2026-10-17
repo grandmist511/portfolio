@@ -33,6 +33,15 @@ body {
   min-height: 100vh;
 }
 
+:root[data-theme="dark"] body {
+  background-image: radial-gradient(
+    ellipse 80% 36rem at 50% 0%,
+    rgba(124, 77, 255, 0.06),
+    transparent 100%
+  );
+  background-attachment: fixed;
+}
+
 img,
 picture,
 video,

@@ -61,7 +61,9 @@ function Button({
   const style = { ...baseStyle, ...variants[variant], ...extraStyle };
 
   const motionProps = {
-    whileHover: { scale: 1.02 },
+    whileHover: variant === "primary"
+      ? { scale: 1.02, filter: "brightness(1.08)" }
+      : { scale: 1.02 },
     whileTap: { scale: 0.97 },
     transition: { type: "spring", stiffness: 300, damping: 20 },
     style,

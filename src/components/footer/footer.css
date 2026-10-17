@@ -32,6 +32,7 @@
   width: 40px;
   height: 40px;
   border-radius: var(--radius-sm);
+  border: 1px solid transparent;
   color: var(--color-text-secondary);
   transition: all var(--duration-fast) var(--ease-out-soft);
 }
@@ -39,7 +40,14 @@
 .footer-social-link:hover {
   color: var(--color-accent);
   background: var(--color-accent-tint-06);
+  border-color: var(--color-accent-tint-10);
   transform: translateY(-2px);
+}
+
+.footer-social-link:focus-visible,
+.footer-copy a:focus-visible {
+  outline: 2px solid var(--color-accent-bright);
+  outline-offset: 3px;
 }
 
 .footer-divider {
@@ -68,4 +76,3 @@
     padding-block: var(--space-6);
   }
 }
-

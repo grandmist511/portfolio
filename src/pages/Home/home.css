@@ -29,6 +29,10 @@
   opacity: 0.6;
 }
 
+:root[data-theme="dark"] .hero-bg-blob {
+  opacity: 0.38;
+}
+
 .hero-bg-blob--1 {
   top: -10%;
   right: -10%;

@@ -13,7 +13,11 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-border);
-  transition: background var(--duration-base) var(--ease-out-soft);
+  transition: background var(--duration-base) var(--ease-out-soft), border-color var(--duration-base) var(--ease-out-soft);
+}
+
+:root[data-theme="dark"] .nav {
+  background: rgba(15, 18, 32, 0.78);
 }
 
 .nav-inner {
@@ -24,6 +28,7 @@
   max-width: var(--max-width);
   margin-inline: auto;
   padding-inline: var(--grid-gutter);
+  gap: var(--space-3);
 }
 
 /* Logo */
@@ -53,6 +58,35 @@
   gap: var(--space-2);
 }
 
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  transition: all var(--duration-fast) var(--ease-out-soft);
+}
+
+.theme-toggle:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent-tint-06);
+}
+
+.theme-toggle svg {
+  width: 16px;
+  height: 16px;
+}
+
 .nav-link {
   position: relative;
   display: inline-flex;
@@ -73,7 +107,9 @@
 }
 
 .nav-link--active {
-  color: var(--color-accent-deep);
+  color: var(--color-accent);
+  background: var(--color-accent-tint-10);
+  font-weight: 600;
 }
 
 /* Active pill indicator */
@@ -83,6 +119,13 @@
   background: var(--color-accent-tint-10);
   border-radius: var(--radius-sm);
   z-index: -1;
+}
+
+.nav-link:focus-visible,
+.theme-toggle:focus-visible,
+.nav-toggle:focus-visible {
+  outline: 2px solid var(--color-accent-bright);
+  outline-offset: 3px;
 }
 
 /* Hamburger — mobile */
@@ -118,6 +161,10 @@
 
 /* Mobile menu */
 @media (max-width: 768px) {
+  .nav-actions {
+    gap: var(--space-1);
+  }
+
   .nav-toggle {
     display: flex;
   }
